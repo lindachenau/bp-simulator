@@ -1,0 +1,24 @@
+service: bp-simulator
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-2
+  
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - events:*
+      Resource: "*"
+
+functions:
+  bp-simulator:
+    handler: bp-simulator.handler
+    description: BP simulator
+    events:
+      - http:
+          path: api/get-appointments
+          method: post
+          integration: lambda
+          cors: true
+

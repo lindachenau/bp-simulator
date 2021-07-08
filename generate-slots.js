@@ -27,7 +27,7 @@ const dayAppts = ["9:00 am", "9:15 am", "9:30 am", "9:45 am",
 const generate = (req) => {
   console.log("req.body", req.body)
   return new Promise ((resolve, reject) => {
-    const origin = req.get('origin')
+    // const origin = req.get('origin')
     const doctorList = req.body.doctorList ? req.body.doctorList : []
     let startDate = new Date(req.body.startDate)
     const numDays = req.body.numDays
